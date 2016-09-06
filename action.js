@@ -6,13 +6,19 @@ function chunk() {
   //read the word from the input box
   var word= document.getElementById('word').value;
   //convert the word into lowercase
-  word = word.toLowerCase();
+  word = word.toLowerCase().trim();
+  $("#theword").text(word);
   //parse the sampledb.json file
   $.getJSON("sampledb.json", function(db){
     //for each phoneme in the word
-    for (var item in db[word].chunks) {
-      //create a button. pass each item in chunks and phones as argument
-      createButton(db[word].chunks[item],db[word].phones[item]);
+    if (typeof db[word] != "undefined") {
+      for (var item in db[word].chunks) {
+        //create a button. pass each item in chunks and phones as argument
+        createButton(db[word].chunks[item],db[word].phones[item]);
+      }
+    }
+    else {
+      alert ("Enter a valid word");
     }
   });
 }

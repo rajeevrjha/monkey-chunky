@@ -37,10 +37,9 @@ input {
 }
 .phonemeDiv {
   width:80%;
-  margin:auto;
+  margin:0 auto;
   display: flex;
   justify-content: flex-center;
-  margin-top: 6%;
 }
 
 .phoneme {
@@ -67,6 +66,13 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+p {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  font-size: 3em;
+  font-family: 'Patrick Hand', cursive;
 }
 @media screen and (max-width: 520px) {
   .phonemeDiv {
