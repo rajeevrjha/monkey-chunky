@@ -3,12 +3,12 @@
 }
 
 * {
-outline: 1px solid red !important;
+//outline: 1px solid red !important;
 }
 
 .top-bar {
   background-color: #369af1;
-  font-size: 3em;
+  font-size: 2.8em;
   text-align: center;
   color: white;
   padding:10px;
@@ -17,21 +17,59 @@ outline: 1px solid red !important;
 
 .form {
   width: 80%;
-  display: block;
-  margin: 0 auto;
+  display: flex;
+  justify-content: flex-center;
+  flex-direction: column;
+  margin:auto;
 }
 
-.field {
-  width: 100%;
-}
 
 input {
   border: 2px solid black;
-  padding: 0 8px;
-
+  padding: 1px;
+  font-size: 1.5em;
 }
 
+.wrapper {
+  width :100%;
+}
 .phonemeDiv {
+  width:80%;
+  margin:auto;
+  display: flex;
+  justify-content: flex-center;
+  margin-top: 6%;
+}
+
+.phoneme {
+  font-size: 3em;
+  padding: 4px;
+  border-radius:20%;
+  height: 80px;
+  width: 80px;
+  padding: auto;
+  margin: auto;
+  background-color: #f44336;
+  color: white;
+}
+
+img {
   display: block;
   margin: 0 auto;
+  bottom: 0;
+  padding-top: 20px;
+}
+
+.img-responsive {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+@media screen and (max-width: 520px) {
+  .phonemeDiv {
+    flex-direction: column;
+  }
+  .phoneme {
+    margin-bottom: 20px;
+  }
 }

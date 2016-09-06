@@ -19,7 +19,7 @@ function createButton(phoneme, sound) {
   //create a button
   var button = document.createElement("button");
   button.innerHTML = phoneme;
-
+  button.className = "phoneme";
   //append the button to the phonemeDiv
   var phonemeDiv = document.getElementsByClassName('phonemeDiv')[0];
   phonemeDiv.appendChild(button);
