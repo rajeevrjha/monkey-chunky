@@ -5,6 +5,8 @@ function chunk() {
 
   //read the word from the input box
   var word= document.getElementById('word').value;
+  //convert the word into lowercase
+  word = word.toLowerCase();
   //parse the sampledb.json file
   $.getJSON("sampledb.json", function(db){
     //for each phoneme in the word
