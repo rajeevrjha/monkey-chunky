@@ -1,3 +1,9 @@
+$(document).keyup(function (e) {
+    if ($("#word").is(":focus") && (e.keyCode == 13)) {
+        chunk();
+    }
+});
+
 function chunk() {
   //empty the phonemeDiv of previous buttons
   var phonemeDiv = document.getElementsByClassName('phonemeDiv')[0];
