@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Patrick+Hand';
+
 * {
   box-sizing: border-box;
 }
@@ -43,6 +45,7 @@ input {
 
 .phoneme {
   font-size: 3em;
+  font-family: 'Patrick Hand', cursive;
   padding: 4px;
   border-radius:20%;
   height: 80px;
