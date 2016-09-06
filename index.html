@@ -20,15 +20,31 @@
   </head>
 
   <body>
+    <header>
       <h1 class="top-bar">Monkey-Chunky</h1>
+    </header>
     <div class="container">
-      <div class="form">
+      <form class="form">
         <input type="text" id="word"/>
-        <button type="button" onclick="chunk()">Go</button>
-        <p id="theword"></p>
+        <button type="button" id="go-btn">Go</button>
+      </form>
+      <div class='content'>
+        <p class="word js-word">
+          <!-- add word here-->
+        </p>
+        <div class="phonemes js-phonemes">
+          <!-- add individual letters here like below-->
+          <!-- <span>a</span> -->
+          <!-- <span>b</span> -->
+          <!-- <span>c</span> -->
+        </div>
+        <div>
+          <img class="img-responsive" src="monkey-chunky.png"/>
+        </div>
       </div>
-      <div class="phonemeDiv"></div>
-      <img class="img-responsive" src="monkey-chunky.png"/>
     </div>
+    <footer>
+      <!-- Add footer content here -->
+    </footer>
   </body>
 </html>
