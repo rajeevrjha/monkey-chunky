@@ -4,40 +4,61 @@
   box-sizing: border-box;
 }
 
-* {
-//outline: 1px solid red !important;
+body{
+  margin: 0;
 }
 
-.top-bar {
+header {
   background-color: #369af1;
-  font-size: 2.8em;
   text-align: center;
   color: white;
   padding:10px;
-  margin-top: 0;
+}
+
+header h1{
+  margin: 0;
+}
+
+.container{
+  max-width: 1400px;
+  min-height: 80vh;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .form {
-  width: 80%;
+  width: 60%;
   display: flex;
   justify-content: flex-center;
   flex-direction: column;
-  margin:auto;
+  margin: 0 auto;
 }
 
 
-input {
+.form input {
   border: 2px solid black;
   padding: 1px;
   font-size: 1.5em;
 }
 
+.form button{
+  width: 50%;
+  margin: 10px auto;
+}
+
 .wrapper {
   width :100%;
 }
-.phonemeDiv {
+
+.phonemes {
   width:80%;
-  margin:0 auto;
+  margin:20px auto;
   display: flex;
   justify-content: flex-center;
 }
@@ -53,6 +74,7 @@ input {
   margin: auto;
   background-color: #f44336;
   color: white;
+  cursor: pointer;
 }
 
 img {
@@ -67,6 +89,7 @@ img {
   max-width: 100%;
   height: auto;
 }
+
 p {
   text-align: center;
   padding: 0;
@@ -74,8 +97,25 @@ p {
   font-size: 3em;
   font-family: 'Patrick Hand', cursive;
 }
+
+@media screen and (max-width: 800px) {
+  .form{
+    width: 80%;
+  }
+  .form button{
+    width: 80%;
+  }
+}
+
 @media screen and (max-width: 520px) {
-  .phonemeDiv {
+  .form{
+    width: 95%;
+    margin-top: 10px;
+  }
+  .form button{
+    width: 80%;
+  }
+  .phonemes{
     flex-direction: column;
   }
   .phoneme {
