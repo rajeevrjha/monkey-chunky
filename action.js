@@ -1,5 +1,5 @@
 var db,soundLabel
-var src = "phonics.mp3"
+var src = "https://res.cloudinary.com/vinaypuppal/video/upload/v1473349497/requestABook/phonics.wav";
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
   $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
@@ -51,10 +51,22 @@ function createButton(phoneme, sound) {
   button = $('.js-phonemes').append("<button class='phoneme' id="+phoneme+">"+phoneme+"</button>");
   $('#'+phoneme).on('click',function(){
     sound.toUpperCase();
-    start_time = soundLabel[sound][0].start_time;
-    end_time = soundLabel[sound][0].end_time;
-    var sound_file = new Audio(src+"#t="+ start_time +"," + end_time );
+    var start_time = soundLabel[sound][0].start_time;
+    console.log('start_time', start_time);
+    var end_time = soundLabel[sound][0].end_time;
+    console.log('end_time', end_time);
+    var play_time = end_time - start_time;
+    console.log('play_time', play_time);
+    var sound_file = new Audio(src);
+    sound_file.currentTime = start_time;
+    console.log('sound_file.currentTime', sound_file.currentTime);
     sound_file.play();
+    setTimeout(function() {
+      sound_file.currentTime = 0;
+      sound_file.pause();
+      console.log('stopped');
+    }, play_time * 10000);
+    console.log('play_time * 10000', play_time * 10000);
   });
   //append the button to the phonemes
   $('.js-phonemes').append(button);
