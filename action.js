@@ -1,5 +1,9 @@
 var db,soundLabel
 var src = "https://res.cloudinary.com/vinaypuppal/video/upload/v1473349497/requestABook/phonics.wav";
+var sound_file = new buzz.sound(src, {
+    preload: true
+});
+
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
   $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
@@ -55,18 +59,17 @@ function createButton(phoneme, sound) {
     console.log('start_time', start_time);
     var end_time = soundLabel[sound][0].end_time;
     console.log('end_time', end_time);
-    var play_time = end_time - start_time;
-    console.log('play_time', play_time);
-    var sound_file = new Audio(src);
-    sound_file.currentTime = start_time;
-    console.log('sound_file.currentTime', sound_file.currentTime);
+    // var sound_file = new Audio(src);
+    sound_file.setTime(start_time);
+    console.log('sound_file.setTime(start_time)', sound_file.getTime());
     sound_file.play();
-    setTimeout(function() {
-      sound_file.currentTime = 0;
-      sound_file.pause();
-      console.log('stopped');
-    }, play_time * 10000);
-    console.log('play_time * 10000', play_time * 10000);
+    console.log('sound_file.play()');
+    sound_file.bind("timeupdate", function () {
+      console.log('this.getTime()', this.getTime());
+      if(this.getTime() >= (end_time + 0.5)){
+        sound_file.stop();
+      }
+    });
   });
   //append the button to the phonemes
   $('.js-phonemes').append(button);
