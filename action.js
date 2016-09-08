@@ -1,5 +1,10 @@
+var db,soundLabel
+var src = "phonics.mp3"
 $(document).ready(function(){
-
+  //parse the JSON data Wait for the application to launch
+  $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
+  $.getJSON("timeLabel.json", function(temp_soundLabel){soundLabel=temp_soundLabel;});
+  //On form submit
   $('.form').on('submit', function(e){
     // to prevent default form submit action
     e.preventDefault();
@@ -26,7 +31,6 @@ function chunk(word) {
   $('.js-phonemes').text('Loading Please Wait!...');
 
   //parse the sampledb.json file
-  $.getJSON("sampledb.json", function(db){
     // remove loading text
     $('.js-phonemes').text('');
     //for each phoneme in the word
@@ -40,12 +44,18 @@ function chunk(word) {
     else {
       alert ("Enter a valid word");
     }
-  });
 }
 
 function createButton(phoneme, sound) {
   //create a button with text, className: 'phoneme' and click handler
-  var button = $('<button>').text(phoneme).addClass('phoneme').on('click',function(){alert(sound)});
+  button = $('.js-phonemes').append("<button class='phoneme' id="+phoneme+">"+phoneme+"</button>");
+  $('#'+phoneme).on('click',function(){
+    sound.toUpperCase();
+    start_time = soundLabel[sound][0].start_time;
+    end_time = soundLabel[sound][0].end_time;
+    var sound_file = new Audio(src+"#t="+ start_time +"," + end_time );
+    sound_file.play();
+  });
   //append the button to the phonemes
   $('.js-phonemes').append(button);
 }
