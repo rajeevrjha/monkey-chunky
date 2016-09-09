@@ -163,6 +163,10 @@ p {
   }
 }
 
+.highlight {
+  background-color: yellow;
+}
+
 @media screen and (max-width: 520px) {
   .form{
     width: 80%;

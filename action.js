@@ -83,9 +83,9 @@ function chunk(word) {
     if (typeof db[word] != "undefined") {
       for (var item in db[word].chunks) {
         //create a button. pass each item in chunks and phones as argument
-        createButton(db[word].chunks[item],db[word].phones[item]);
+        createButton(db[word].chunks[item],db[word].phones[item],item);
         //create text over the buttons
-        $(".js-word").append(db[word].chunks[item]);
+        $(".js-word").append("<span class='text p_"+item+"'>"+db[word].chunks[item]+"</span>");
       }
     }
     else {
@@ -93,13 +93,16 @@ function chunk(word) {
     }
 }
 
-function createButton(phoneme, sound) {
+function createButton(phoneme, sound, item) {
   //create a button with text, className: 'phoneme' and click handler
     sound = sound.toUpperCase();
     var button = $('<button class="phoneme">');
     button.text(phoneme);
     button.click(function(){
       sound_file.play(sound);
+      //console.log();
+      $('.text').toggleClass("highlight",false);
+      $(".p_"+item).toggleClass("highlight");
       /*sound_file.currentTime = start_time;
       console.log(sound_file.currentTime);
       sound_file.play();
