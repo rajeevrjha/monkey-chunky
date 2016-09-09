@@ -1,5 +1,49 @@
-var db,soundLabel
-var src = "phonics.mp3"
+var db,soundLabel;
+var sound_file = new Howl({
+  src: ['phonics.mp3','phonics.wav'],
+  sprite: {
+    IY: [0, 470],
+    IH: [2280,410],
+    UH: [4430,500],
+    UW: [6720,790],
+    EH: [9220,360],
+    AH: [11390,380],
+    ER: [13590,570],
+    AO: [15970,610],
+    AE: [18370,390],
+    AA: [25130,400],
+    EY: [29640,540],
+    OY: [34320,550],
+    OW: [36680,600],
+    AY: [41400,610],
+    AW: [43810,500],
+    P:  [46130,300],
+    B:  [48240,330],
+    T:  [50370,390],
+    D:  [52550,400],
+    CH: [54770,430],
+    JH: [57010,490],
+    K:  [59290,340],
+    G:  [61430,370],
+    F:  [63600,570],
+    V:  [65970,650],
+    TH: [68430,740],
+    DH: [70930,480],
+    S:  [73210,800],
+    Z:  [75790,730],
+    SH: [78320,520],
+    ZH: [80640,540],
+    M:  [82960,630],
+    N:  [85400,600],
+    NG: [87810,710],
+    HH: [90320,460],
+    L:  [92590,430],
+    R:  [94810,550],
+    W:  [97170,430],
+    Y:  [99390,510]
+  }
+});
+
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
   $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
@@ -23,9 +67,10 @@ $(document).ready(function(){
 function chunk(word) {
   //empty the buttons of letters of previous word
   $('.js-phonemes').empty();
+ //empty the text over the button
+  $(".js-word").empty();
   //convert the word into lowercase
   word = word.toLowerCase();
-  $(".js-word").text(word);
 
   //show loading text
   $('.js-phonemes').text('Loading Please Wait!...');
@@ -39,6 +84,8 @@ function chunk(word) {
       for (var item in db[word].chunks) {
         //create a button. pass each item in chunks and phones as argument
         createButton(db[word].chunks[item],db[word].phones[item]);
+        //create text over the buttons
+        $(".js-word").append(db[word].chunks[item]);
       }
     }
     else {
@@ -48,14 +95,18 @@ function chunk(word) {
 
 function createButton(phoneme, sound) {
   //create a button with text, className: 'phoneme' and click handler
-  button = $('.js-phonemes').append("<button class='phoneme' id="+phoneme+">"+phoneme+"</button>");
-  $('#'+phoneme).on('click',function(){
-    sound.toUpperCase();
-    start_time = soundLabel[sound][0].start_time;
-    end_time = soundLabel[sound][0].end_time;
-    var sound_file = new Audio(src+"#t="+ start_time +"," + end_time );
-    sound_file.play();
-  });
+    sound = sound.toUpperCase();
+    var button = $('<button class="phoneme">');
+    button.text(phoneme);
+    button.click(function(){
+      sound_file.play(sound);
+      /*sound_file.currentTime = start_time;
+      console.log(sound_file.currentTime);
+      sound_file.play();
+      setTimeout(sound_file.pause(),duration);*/
+    });
+
+
   //append the button to the phonemes
   $('.js-phonemes').append(button);
 }
