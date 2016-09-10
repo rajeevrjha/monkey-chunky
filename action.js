@@ -47,7 +47,7 @@ var sound_file = new Howl({
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
   $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
-  $.getJSON("timeLabel.json", function(temp_soundLabel){soundLabel=temp_soundLabel;});
+  //$.getJSON("timeLabel.json", function(temp_soundLabel){soundLabel=temp_soundLabel;});
   //On form submit
   $('.form').on('submit', function(e){
     // to prevent default form submit action
