@@ -15,8 +15,12 @@
       <h1 class="top-bar">Monkey-Chunky</h1>
     </header>
     <div class="container">
+      <datalist id="options">
+        <!-- <option value="word1"> -->
+        <!-- <option value="word2"> -->
+      </datalist>
       <form class="form" autocomplete="off">
-        <input type="text" id="word"/>
+        <input type="text" id="word" list="options"/>
         <button type="submit" id="go-btn">Go</button>
       </form>
       <div class='content'>
@@ -47,6 +51,6 @@
 
       ga('create', 'UA-83918292-1', 'auto');
       ga('send', 'pageview');
-      </script>
+    </script>
   </body>
 </html>

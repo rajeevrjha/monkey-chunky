@@ -1,4 +1,6 @@
-var db,soundLabel;
+//db-> database variable
+var db;
+//Audio sprite using Howler.js library
 var sound_file = new Howl({
   src: ['phonics.mp3','phonics.wav'],
   sprite: {
@@ -46,8 +48,7 @@ var sound_file = new Howl({
 
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
-  $.getJSON("sampledb.json", function(temp_db){db=temp_db;});
-  //$.getJSON("timeLabel.json", function(temp_soundLabel){soundLabel=temp_soundLabel;});
+  $.getJSON("story1.json", function(temp_db){db=temp_db;addOptions();});
   //On form submit
   $('.form').on('submit', function(e){
     // to prevent default form submit action
@@ -64,6 +65,15 @@ $(document).ready(function(){
 
 });
 
+//function to add options in the html datalist for autocomplete
+function addOptions() {
+  for (var key in db) {
+    var option = $('<option value="'+key+'">');
+    $('#options').append(option);
+  }
+}
+
+//function to chunk the word
 function chunk(word) {
   //empty the buttons of letters of previous word
   $('.js-phonemes').empty();
@@ -100,16 +110,9 @@ function createButton(phoneme, sound, item) {
     button.text(phoneme);
     button.click(function(){
       sound_file.play(sound);
-      //console.log();
       $('.text').toggleClass("highlight",false);
       $(".p_"+item).toggleClass("highlight");
-      /*sound_file.currentTime = start_time;
-      console.log(sound_file.currentTime);
-      sound_file.play();
-      setTimeout(sound_file.pause(),duration);*/
     });
-
-
   //append the button to the phonemes
   $('.js-phonemes').append(button);
 }
