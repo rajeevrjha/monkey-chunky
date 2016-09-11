@@ -73,7 +73,7 @@
 	},
 	"large": {
 		"chunks": ["l", "a", "r", "ge"],
-		"phones": ["L", "A", "R", "JH"]
+		"phones": ["L", "AA", "R", "JH"]
 	},
 	"looking": {
 		"chunks": ["l", "oo", "k", "i", "ng"],
