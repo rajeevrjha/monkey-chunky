@@ -104,7 +104,7 @@
 		"phones": ["S", "AO"]
 	},
 	"slab": {
-		"chunks": ["a", "l", "a", "b"],
+		"chunks": ["s", "l", "a", "b"],
 		"phones": ["S", "L", "AE", "B"]
 	},
 	"snapped": {
