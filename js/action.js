@@ -21,12 +21,13 @@ Button.prototype.createHTMLElement = function(sound,item){
 //when the document is ready
 $(document).ready(function(){
   //read the json file which contains the database of words
-  $.getJSON("db/story1.json", function(temp_db){db=temp_db;});
+  $.getJSON("db/story1.json", function(temp_db){
+     db=temp_db;
+    //add options for the input
+    addOptions();});
   //parse the audio sprite
   $.getJSON("db/sprite.json", function(sprite){sound_file= new Howl({
     src: ['media/phonics.mp3','media/phonics.wav'],sprite})});
-  //add options for the input
-  addOptions();
   //when the form is submitted
   $('.form').on('submit', function(e){
     //prevent the default submit function
@@ -80,4 +81,5 @@ function addOptions() {
     var option = $('<option value="'+key+'">');
     $('#options').append(option);
   }
+
 }
