@@ -21,7 +21,7 @@ Button.prototype.createHTMLElement = function(sound,item){
 //when the document is ready
 $(document).ready(function(){
   //read the json file which contains the database of words
-  $.getJSON("db/story1.json", function(temp_db){
+  $.getJSON("db/db_1.json", function(temp_db){
      db=temp_db;
     //add options for the input
     addOptions();});
