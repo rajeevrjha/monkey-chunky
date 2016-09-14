@@ -1,0 +1,15 @@
+<IfModule mod_expires.c>
+  #HTML
+  ExpiresByType text/html	"access plus 0 seconds"
+
+  #CSS
+  ExpiresByType text/css	"access plus 0 seconds"
+
+  #Javascript
+  ExpiresByType text/js		"access plus 1 weeks"
+
+  #Media
+  ExpiresByType audio/mp3	"access plus 3 weeks"
+  ExpiresByType audio/wav	"access plus 3 weeks"
+  ExpiresByType img/png         "access plus 3 weeks"		       
+</IfModule>

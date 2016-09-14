@@ -48,7 +48,7 @@ var sound_file = new Howl({
 
 $(document).ready(function(){
   //parse the JSON data Wait for the application to launch
-  $.getJSON("../db/story1.json", function(temp_db){db=temp_db;addOptions();});
+  $.getJSON("../monkey-chunky/db/story1.json", function(temp_db){db=temp_db;addOptions();});
   //On form submit
   $('.form').on('submit', function(e){
     // to prevent default form submit action
