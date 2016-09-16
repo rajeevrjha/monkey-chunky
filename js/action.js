@@ -89,9 +89,9 @@ function clean(){
 }
 //function to add options by appending to the dataList in HTML
 function addOptions() {
-  for (var key in db) {
-    var option = $('<option value="'+key+'">');
-    $('#options').append(option);
-  }
-
+  /*$( "#word" ).autocomplete({
+      source: Object.keys(db),
+      position: { my : "right bottom", at: "right top" }
+    });
+*/
 }

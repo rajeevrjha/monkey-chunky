@@ -5,10 +5,13 @@
     <meta content='width=device-width, initial-scale=1' name='viewport'>
     <link href='media/favicon.ico' rel='shortcut icon'>
     <link href='dist/sweetalert.css' rel='stylesheet' type='text/css'>
+      <link href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' rel='stylesheet' type='text/css'>
+    </link>
     <link href='style/style.css' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Patrick+Hand' rel='stylesheet'>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
     <script src='https://cdn.jsdelivr.net/howler.js/2.0.0/howler.js'></script>
+    <script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
     <script src='dist/sweetalert.min.js'></script>
     <script src='js/action.js'></script>
   </head>
@@ -18,7 +21,7 @@
     </header>
     <div class='container'>
       <datalist id='options'></datalist>
-      <form autocomplete='off' class='form'>
+      <form autocomplete='off' class='form ui-widget'>
         <input id='word' list='options' type='text'>
         <button id='go-btn' type='Submit'>Go</button>
       </form>

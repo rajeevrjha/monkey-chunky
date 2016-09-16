@@ -10,6 +10,8 @@
     %link(rel='shortcut icon' href='media/favicon.ico')
     -# Add sweet alert css
     %link(rel='stylesheet' type='text/css' href='dist/sweetalert.css')
+      -# Add jquery UI css
+      %link(rel='stylesheet' type='text/css' href='//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css')
     -# External CSS stylesheet
     %link(rel='stylesheet' type='text/css' href='style/style.css')
     -# Import Patrick Hand font
@@ -18,6 +20,8 @@
     %script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js')
     -# Add the Howler Library
     %script(src='https://cdn.jsdelivr.net/howler.js/2.0.0/howler.js')
+    -# Add the jquery-ui js library for autocomplete feature
+    %script(src='https://code.jquery.com/ui/1.12.1/jquery-ui.js')
     -# Add sweet alert javascript
     %script(src='dist/sweetalert.min.js')
     -# Add external Javascript app file
@@ -33,7 +37,7 @@
         To be replaced with auto-complete using javascript
       %datalist#options
       -#Form
-      %form.form(autocomplete="off")
+      %form.form.ui-widget(autocomplete="off")
         -#User enters the text
         %input#word(type='text' list='options')
         -#Button to submit the form
