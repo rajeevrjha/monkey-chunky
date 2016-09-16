@@ -59,13 +59,25 @@ function chunk(word){
       }
     }
     else {
-        alert ("We do not have this word in our database at the moment");
+        swal({
+	        title: "Not a valid word",
+	        text: "This word does not exist in our database at the moment",
+	        type: "warning",
+	        confirmButtonText: "Enter another word"
+	       });
+	//clean the inputValue here
+	$('form')[0].reset();
     }
 
   }
   //if the word is empty
   else{
-    alert("Hey, you did not enter any word!");
+    swal({
+      title: "No word entered",
+      text: "Hey, did you remember to enter a word?",
+      type: "error",
+      confirmButtonText: "Enter a word"
+    });
   }
 }
 
