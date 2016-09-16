@@ -89,9 +89,13 @@ function clean(){
 }
 //function to add options by appending to the dataList in HTML
 function addOptions() {
-  /*$( "#word" ).autocomplete({
-      source: Object.keys(db),
-      position: { my : "right bottom", at: "right top" }
-    });
-*/
+  $('#word').autocomplete({
+    lookup: Object.keys(db),
+    lookupFilter: function (suggestion, originalQuery, queryLowerCase) {
+        return suggestion.value.toLowerCase().startsWith(queryLowerCase);
+    },
+    onSelect: function (suggestion) {
+        //alert('You selected: ' + suggestion);
+    }
+});
 }
